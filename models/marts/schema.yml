@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: rpt_sale_month
+    description: Báo cáo doanh số theo sản phẩm và tháng
+    columns:
+      - name: product_id
+        tests: [not_null]
+      - name: month
+        tests: [not_null]
+
+  - name: rpt_region_month
+    description: Báo cáo doanh số theo khu vực và tháng
+    columns:
+      - name: region_id
+        tests: [not_null]
+      - name: month
+        tests: [not_null]

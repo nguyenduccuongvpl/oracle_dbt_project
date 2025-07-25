@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: STAGING
+    tables:
+      - name: CUONG_STG_AGE_GROUP
+        description: Staging table for age group definitions
+      - name: CUONG_STG_CITY
+        description: Staging table for city information
+      - name: CUONG_STG_CUSTOMER
+        description: Staging table for customer master data
+      - name: CUONG_STG_EMPLOYEE
+        description: Staging table for employee records
+      - name: CUONG_STG_ORDERS
+        description: Staging table for sales orders
+      - name: CUONG_STG_ORDER_LINES
+        description: Staging table for sales order line items
+      - name: CUONG_STG_PRODUCT
+        description: Staging table for product master data
+      - name: CUONG_STG_REGION
+        description: Staging table for region and country data
+      - name: CUONG_STG_SALES_PERSON
+        description: Staging table for sales representative details

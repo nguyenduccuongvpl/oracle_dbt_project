@@ -1,0 +1,22 @@
+name: 'oracle_project'
+version: '1.0'
+config-version: 2
+
+profile: 'oracle_dwh_dm'
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+target-path: "target"
+clean-targets: ["target", "dbt_modules"]
+
+models:
+  oracle_project:
+    dwh:
+      +schema: DWH
+      +materialized: table
+    marts:
+      +schema: DM
+      +materialized: table
+    staging:
+      +schema: STAGING
+      +materialized: table

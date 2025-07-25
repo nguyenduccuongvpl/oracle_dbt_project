@@ -1,0 +1,148 @@
+version: 2
+
+models:
+  - name: cuong_fact_orders
+    description: Order transaction fact table
+    columns:
+      - name: order_id
+        description: Order ID
+        tests: [not_null, unique]
+
+      - name: order_date
+        description: Order date
+        tests: [not_null]
+
+      - name: product_id
+        description: Product ID
+        tests: [not_null]
+
+      - name: city_id
+        description: City ID
+        tests: [not_null]
+
+      - name: cust_id
+        description: Customer ID
+        tests: [not_null]
+
+      - name: sales_pers_id
+        description: Salesperson ID
+        tests: [not_null]
+
+      - name: quantity
+        description: Quantity of product ordered
+        tests: []
+
+      - name: gross_sales
+        description: Gross sales amount (total)
+        tests: []
+
+  - name: cuong_dim_product
+    description: Product dimension table
+    columns:
+      - name: product_id
+        description: Product ID
+        tests: [not_null, unique]
+
+      - name: product
+        description: Product name
+        tests: [not_null]
+
+      - name: family_name
+        description: Product family name
+        tests: []
+
+      - name: price
+        description: Product price
+        tests: []
+
+  - name: cuong_dim_customer
+    description: Customer dimension table
+    columns:
+      - name: cust_id
+        description: Customer ID
+        tests: [not_null, unique]
+
+      - name: last_name
+        description: Last name of the customer
+        tests: []
+
+      - name: first_name
+        description: First name of the customer
+        tests: [not_null]
+
+      - name: address
+        description: Customer address
+        tests: []
+
+      - name: city_id
+        description: City ID
+        tests: []
+
+      - name: phone
+        description: Phone number
+        tests: []
+
+      - name: age
+        description: Age of the customer
+        tests: []
+
+      - name: sales_pers_id
+        description: Salesperson ID responsible for the customer
+        tests: []
+
+      - name: dear
+        description: Salutation (Mr./Ms./Dr. etc.)
+        tests: []
+
+  - name: cuong_dim_city
+    description: City dimension table
+    columns:
+      - name: city_id
+        description: City ID
+        tests: [not_null, unique]
+
+      - name: city
+        description: City name
+        tests: [not_null]
+
+      - name: region_id
+        description: Region ID
+        tests: []
+
+  - name: cuong_dim_sales_person
+    description: Salesperson dimension table
+    columns:
+      - name: sales_pers_id
+        description: Salesperson ID
+        tests: [not_null, unique]
+
+      - name: first_name
+        description: First name of the salesperson
+        tests: [not_null]
+
+      - name: last_name
+        description: Last name of the salesperson
+        tests: []
+
+      - name: hire_date
+        description: Hire date of the salesperson
+        tests: []
+
+  - name: cuong_dim_region
+    description: Region dimension table
+    columns:
+      - name: region_id
+        description: Region ID
+        tests: [not_null, unique]
+
+      - name: region
+        description: Region name
+        tests: [not_null]
+
+      - name: country_id
+        description: Country ID
+        tests: []
+
+      - name: country
+        description: Country name
+        tests: []
