@@ -1,13 +1,12 @@
-name: dbt CI/CD
+name: dbt CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
 
 jobs:
-  dbt-build:
+  dbt-ci:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,26 +18,26 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dbt Oracle adapter
+      - name: Install dbt-oracle
         run: |
           pip install --upgrade pip
           pip install dbt-oracle
 
-      - name: Set up DBT profile
+      - name: Set up DBT dev profile
         run: |
-          mkdir -p /usr/app/.dbt
-          echo "$DBT_PROFILES_YML" > /usr/app/.dbt/profiles.yml
+          mkdir -p ~/.dbt
+          echo "$DBT_PROFILES_YML" > ~/.dbt/profiles.yml
         env:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
 
       - name: Install dbt packages
-        run: dbt deps --project-dir oracle_project --profiles-dir /usr/app/.dbt
+        run: dbt deps --project-dir oracle_project --profiles-dir ~/.dbt
 
       - name: Compile DBT models
-        run: dbt compile --project-dir oracle_project --target dev --profiles-dir /usr/app/.dbt
+        run: dbt compile --project-dir oracle_project --target dev --profiles-dir ~/.dbt
 
-      - name: Run DBT models
-        run: dbt run --project-dir oracle_project --target dev --profiles-dir /usr/app/.dbt
+      - name: Run DBT models (dev)
+        run: dbt run --project-dir oracle_project --target dev --profiles-dir ~/.dbt
 
-      - name: Run DBT tests
-        run: dbt test --project-dir oracle_project --target dev --profiles-dir /usr/app/.dbt
+      - name: Run DBT tests (dev)
+        run: dbt test --project-dir oracle_project --target dev --profiles-dir ~/.dbt
