@@ -1,0 +1,62 @@
+version: 2
+
+snapshots:
+  - name: cuong_dim_product
+    description: Product dimension snapshot
+    columns:
+      - name: product_id
+        tests: [not_null]
+      - name: product
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+      - name: dbt_valid_to
+        tests: []
+
+  - name: cuong_dim_customer
+    description: Customer dimension snapshot
+    columns:
+      - name: cust_id
+        tests: [not_null]
+      - name: first_name
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+      - name: dbt_valid_to
+        tests: []
+
+  - name: cuong_dim_city
+    description: City dimension snapshot
+    columns:
+      - name: city_id
+        tests: [not_null]
+      - name: city
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+      - name: dbt_valid_to
+        tests: []
+
+  - name: cuong_dim_sales_person
+    description: Salesperson dimension snapshot
+    columns:
+      - name: sales_pers_id
+        tests: [not_null]
+      - name: first_name
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+      - name: dbt_valid_to
+        tests: []
+
+  - name: cuong_dim_region
+    description: Region dimension snapshot
+    columns:
+      - name: region_id
+        tests: [not_null]
+      - name: region
+        tests: [not_null]
+      - name: dbt_valid_from
+        tests: [not_null]
+      - name: dbt_valid_to
+        tests: []

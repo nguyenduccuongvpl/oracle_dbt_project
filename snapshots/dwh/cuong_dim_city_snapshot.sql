@@ -1,4 +1,4 @@
-{% snapshot cuong_dim_city_snapshot %}
+{% snapshot cuong_dim_city %}
 {{
   config(
     target_schema='DWH',

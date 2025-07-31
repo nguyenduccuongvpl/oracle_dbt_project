@@ -14,9 +14,20 @@ models:
     dwh:
       +schema: DWH
       +materialized: table
+
     marts:
       +schema: DM
       +materialized: table
     staging:
       +schema: STAGING
       +materialized: table
+
+snapshots:
+  oracle_project:
+    +schema: DWH
+
+seeds:
+  oracle_project:
+    +schema: STAGING
+
+
