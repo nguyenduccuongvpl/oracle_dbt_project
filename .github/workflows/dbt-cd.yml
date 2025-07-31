@@ -1,17 +1,17 @@
-name: dbt CD (Deploy to prod)
+name: dbt CD (Deploy to Prod)
 
 on:
   workflow_dispatch:
   push:
     tags:
-      - 'v*'  # ví dụ: v1.0.0
+      - 'v*'
 
 jobs:
   dbt-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
       - name: Set up Python
@@ -21,7 +21,7 @@ jobs:
 
       - name: Install dbt-oracle
         run: |
-          pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install dbt-oracle
 
       - name: Set up DBT prod profile
@@ -31,11 +31,9 @@ jobs:
         env:
           DBT_PROFILES_YML_PROD: ${{ secrets.DBT_PROFILES_YML_PROD }}
 
-      - name: Install dbt packages
-        run: dbt deps --project-dir oracle_project --profiles-dir ~/.dbt
-
-      - name: Run DBT models (prod)
-        run: dbt run --project-dir oracle_project --target prod --profiles-dir ~/.dbt
-
-      - name: Run DBT tests (prod)
-        run: dbt test --project-dir oracle_project --target prod --profiles-dir ~/.dbt
+      - name: Deploy to prod
+        run: |
+          cd oracle_project
+          dbt deps
+          dbt run --target prod
+          dbt test --target prod
