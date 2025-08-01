@@ -15,12 +15,12 @@ jobs:
 
       - name: Check Python version
         run: |
-          & "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" --version
+          & "C:\Program Files\Python311\python.exe" --version
 
       - name: Install dbt-oracle
         run: |
-          & "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" -m pip install --upgrade pip
-          & "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" -m pip install dbt-oracle
+          & "C:\Program Files\Python311\python.exe" -m pip install --upgrade pip
+          & "C:\Program Files\Python311\python.exe" -m pip install dbt-oracle
 
       - name: Set up DBT profile
         run: |
