@@ -13,13 +13,14 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Check Python version (for debug)
-        run: python --version
+      - name: Check Python version
+        run: |
+          "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" --version
 
       - name: Install dbt-oracle
         run: |
-          python -m pip install --upgrade pip
-          pip install dbt-oracle
+          "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" -m pip install --upgrade pip
+          "C:\Users\CuongNguyen\AppData\Local\Programs\Python\Python311\python.exe" -m pip install dbt-oracle
 
       - name: Set up DBT profile
         run: |
