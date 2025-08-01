@@ -26,7 +26,6 @@ jobs:
         run: |
           New-Item -ItemType Directory -Force -Path $env:USERPROFILE\.dbt
           $env:DBT_PROFILES_YML | Out-File -Encoding ascii -FilePath $env:USERPROFILE\.dbt\profiles.yml
-        shell: pwsh
         env:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
 
