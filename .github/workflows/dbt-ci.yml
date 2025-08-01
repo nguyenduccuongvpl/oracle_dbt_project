@@ -33,14 +33,10 @@ jobs:
         run: |
           & "C:\Program Files\Python311\Scripts\dbt.exe" deps
 
-      - name: Compile dbt models
+      - name: Run dbt tests (before run)
         run: |
-          & "C:\Program Files\Python311\Scripts\dbt.exe" compile --target dev
+          & "C:\Program Files\Python311\Scripts\dbt.exe" test --target dev
 
       - name: Run dbt models
         run: |
           & "C:\Program Files\Python311\Scripts\dbt.exe" run --target dev
-
-      - name: Run dbt tests
-        run: |
-          & "C:\Program Files\Python311\Scripts\dbt.exe" test --target dev
