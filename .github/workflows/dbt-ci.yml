@@ -30,13 +30,17 @@ jobs:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
 
       - name: Install dbt dependencies
-        run: dbt deps
+        run: |
+          & "C:\Program Files\Python311\Scripts\dbt.exe" deps
 
       - name: Compile dbt models
-        run: dbt compile --target dev
+        run: |
+          & "C:\Program Files\Python311\Scripts\dbt.exe" compile --target dev
 
       - name: Run dbt models
-        run: dbt run --target dev
+        run: |
+          & "C:\Program Files\Python311\Scripts\dbt.exe" run --target dev
 
       - name: Run dbt tests
-        run: dbt test --target dev
+        run: |
+          & "C:\Program Files\Python311\Scripts\dbt.exe" test --target dev
