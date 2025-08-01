@@ -31,21 +31,13 @@ jobs:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
 
       - name: Install dbt dependencies
-        run: |
-          cd oracle_project
-          dbt deps
+        run: dbt deps
 
       - name: Compile dbt models
-        run: |
-          cd oracle_project
-          dbt compile --target dev
+        run: dbt compile --target dev
 
       - name: Run dbt models
-        run: |
-          cd oracle_project
-          dbt run --target dev
+        run: dbt run --target dev
 
       - name: Run dbt tests
-        run: |
-          cd oracle_project
-          dbt test --target dev
+        run: dbt test --target dev
